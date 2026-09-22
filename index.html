@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Ruleta Aleatoria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <h1>La Ruleta Aleatoria</h1>
+      <div class="top-actions">
+        <button class="button button-primary" id="spinButton" type="button">Iniciar</button>
+        <button class="button button-danger" id="resetButton" type="button">Reiniciar</button>
+      </div>
+    </header>
+
+    <section class="workspace" aria-label="Ruleta aleatoria">
+      <div class="wheel-stage">
+        <div class="wheel-wrap">
+          <canvas id="wheelCanvas" width="660" height="660" aria-label="Ruleta con números del 1 al 12"></canvas>
+          <div class="pointer" aria-hidden="true"></div>
+          <button class="spin-overlay" id="overlaySpin" type="button">haz clic para girarlo</button>
+        </div>
+      </div>
+
+      <aside class="controls-panel">
+        <label class="sr-only" for="itemsInput">Elementos de la ruleta</label>
+        <textarea id="itemsInput" spellcheck="false" aria-label="Elementos de la ruleta">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</textarea>
+        <div class="editor-actions">
+          <button class="outline-button" id="titleButton" type="button">Título</button>
+          <button class="outline-button" id="editButton" type="button">Editar</button>
+          <button class="outline-button" id="hideButton" type="button">esconder...</button>
+        </div>
+        <div class="shortcut-list" aria-label="Atajos de teclado">
+          <p><kbd>SPACE</kbd> Girar</p>
+          <p><kbd>X</kbd> Cerrar el banner</p>
+          <p><kbd>S</kbd> Ocultar el elemento seleccionado</p>
+          <p><kbd>R</kbd> Reiniciar</p>
+          <p><kbd>E</kbd> Editar</p>
+          <p><kbd>F</kbd> Pantalla completa</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="result-banner" id="resultBanner" role="status" aria-live="polite">
+    <span id="resultText">Listo para girar</span>
+    <button id="closeBanner" type="button" aria-label="Cerrar resultado">×</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
