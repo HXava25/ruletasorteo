@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Equipos Aleatorios</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="css.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <section class="panel setup-screen" id="setupScreen">
+      <div class="intro">
+        <p class="eyebrow">Sorteo de equipos</p>
+        <h1>Generador de Equipos y Grupos Aleatorios</h1>
+        <p>Crea equipos al azar a partir de una lista de nombres. Los datos se guardan automaticamente en tu navegador.</p>
+      </div>
+
+      <div class="form-grid">
+        <section class="field-card participants-card">
+          <div class="section-title">
+            <span>1</span>
+            <h2>Ingresa los participantes</h2>
+          </div>
+          <textarea id="participantsInput" maxlength="5199" placeholder="Cada participante debe estar en una nueva linea"></textarea>
+          <div class="input-footer">
+            <small>Maximo 100 participantes y 50 caracteres por nombre.</small>
+            <strong id="participantCounter">0</strong>
+          </div>
+          <p class="hint">Agrega un * al inicio para indicar lideres de grupo. Ejemplo: *Lider</p>
+        </section>
+
+        <section class="field-card options-card">
+          <div class="section-title">
+            <span>2</span>
+            <h2>Como dividir</h2>
+          </div>
+
+          <div class="radio-row" role="radiogroup" aria-label="Metodo de division">
+            <label>
+              <input type="radio" name="splitMode" value="teams" checked>
+              Cantidad de equipos
+            </label>
+            <label>
+              <input type="radio" name="splitMode" value="members">
+              Participantes por equipo
+            </label>
+          </div>
+
+          <label class="select-label" id="amountLabel">Selecciona la cantidad</label>
+          <div class="custom-select" id="amountSelect">
+            <button class="select-trigger" id="amountButton" type="button" aria-labelledby="amountLabel" aria-expanded="false">
+              2 equipos
+            </button>
+            <div class="select-menu hidden" id="amountList" role="listbox"></div>
+          </div>
+
+          <div class="section-title title-row">
+            <span>3</span>
+            <h2>Titulo</h2>
+          </div>
+          <input id="titleInput" type="text" maxlength="80" placeholder="Copa del Mundo Qatar 2022">
+
+          <div class="actions">
+            <button class="secondary" id="clearBtn" type="button">Limpiar</button>
+            <button class="primary" id="generateBtn" type="button">Generar equipos</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="panel results-screen hidden" id="resultsScreen">
+      <div class="results-header">
+        <div>
+          <p class="eyebrow">Resultado del sorteo</p>
+          <h1 id="resultTitle">Equipos generados</h1>
+          <p id="resultSummary">Los integrantes apareceran por equipo.</p>
+        </div>
+        <button class="secondary" id="backBtn" type="button">Editar lista</button>
+      </div>
+
+      <div class="teams-board" id="teamsBoard"></div>
+
+      <div class="result-actions">
+        <button id="downloadBtn" type="button">Descargar JPG</button>
+        <button id="copyClipboardBtn" type="button">Copiar al portapapeles</button>
+        <button id="copyColumnsBtn" type="button">Copiar en columnas</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
