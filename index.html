@@ -118,7 +118,6 @@ window.reloader_callback = function(){
         <div class="h1" id="banner" v-bind:style="{background:banner_bgcolor}" v-on:click="show_banner = false">
             <span v-html="banner_html">_</span>
             <button id="hide-result" v-bind:disabled="show_banner !== 'show'" v-show="show_banner == 'show'" v-on:click.stop="clickHideResult()" v-bind:title="hideThisResultTxt" ref="hideBtn">S</button>
-            <button id="close-banner" v-on:click="clickCloseResult" ref="closeBtn">X</button>
         </div>
     </div>
     
